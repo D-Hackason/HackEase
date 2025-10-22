@@ -1,0 +1,19 @@
+# === Git関連 ===
+.git
+.gitignore
+
+# === 環境変数 ===
+.env
+.env.*
+
+# === Pythonキャッシュ ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+

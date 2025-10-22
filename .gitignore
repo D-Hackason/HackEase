@@ -1,0 +1,49 @@
+# === Python / Django ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+*.log
+*.pot
+*.py[cod]
+*$py.class
+
+# === Django 静的ファイル ===
+staticfiles/
+media/
+collectstatic/
+dist/
+build/
+
+# === 環境変数 ===
+.env
+.env.*
+
+# === Docker関連 ===
+*.pid
+*.sock
+*.pid.lock
+*.swp
+*.tmp
+
+# === OS / エディタ ===
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# === Node / Frontend（もし使う場合） ===
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+pnpm-lock.yaml
+
+# === テスト / ドキュメント（必要なら除外） ===
+.coverage
+.pytest_cache/
+htmlcov/
+docs/_build/
+
