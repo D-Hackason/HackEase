@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/base/base_user.css' %}" />
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body class="body">
+    {% block body %}
+    {% endblock %}
+  </body>
+</html>
