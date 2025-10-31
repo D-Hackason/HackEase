@@ -1,0 +1,34 @@
+body {
+  color: #3F4A3C;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #3F4A3C;
+}
+
+a:active {
+  color: #3F4A3C;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+.body--wrap {
+  width: 80%;
+}

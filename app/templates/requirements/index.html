@@ -1,0 +1,44 @@
+{% extends 'base/base_user.html' %}
+{% block head %}
+  <title>テスト</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/components/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/requirements/index.css' %}" />
+{% endblock %}
+{% block body %}
+  {% include 'components/header.html' %}
+  <div class="body--wrap">
+    <ul class="requirements-lists">
+      <li class="requirements-list">
+        <div class="requirements-list--left">
+          <div class="requirements-list--left__title">{タイトル}</div>
+          <div class="requirements-list--left__stacks">
+            <div class="requirements-list--left__stacks-title">技 術</div>
+            <div class="requirements-list--left__stacks-icons">
+              <div class="requirements-list--left__stacks-icon">{}</div>
+              <div class="requirements-list--left__stacks-icon">{}</div>
+              <div class="requirements-list--left__stacks-icon">{}</div>
+              <div class="requirements-list--left__stacks-icon">{}</div>
+              <div class="requirements-list--left__stacks-icon">{}</div>
+              <div class="requirements-list--left__stacks-icon">{}</div>
+              <div class="requirements-list--left__stacks-icon">{}</div>
+              <div class="requirements-list--left__stacks-icon">{}</div>
+            </div>
+          </div>
+        </div>
+        <div class="requirements-list--right">
+          <div class="requirements-list--right__contents">
+            <div class="requirements-list--right__contents-title">難易度</div>
+            <div class="requirements-list--right__contents-border"></div>
+            <div class="requirements-list--right__contents-main">○級</div>
+          </div>
+          <div class="requirements-list--right__contents">
+            <div class="requirements-list--right__contents-title">応募数</div>
+            <div class="requirements-list--right__contents-border"></div>
+            <div class="requirements-list--right__contents-main">○人</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
