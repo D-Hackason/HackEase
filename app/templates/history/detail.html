@@ -1,0 +1,33 @@
+{% extends 'base/base_user.html' %}
+{% block head %}
+  <title>要件一覧</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/components/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/components/requirements_sheet.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/history/detail.css' %}" />
+{% endblock %}
+{% block body %}
+  {% include 'components/header.html' %}
+  <div class="body--wrap">
+    {% include 'components/requirements_sheet.html' %}
+    <div class="history-contents">
+      <div>
+        <div class="history-contents--title">参加ポジション</div>
+        <div class="history-contents--position history--position__green">フロント</div>
+      </div>
+      <div>
+        <div class="history-contents--title">GitHubリンク</div>
+        <a class="history--position__link">{}</a>
+      </div>
+      <div>
+        <div class="history-contents--title">メンバー</div>
+        <ul>
+          <li>{}</li>
+          <li>{}</li>
+          <li>{}</li>
+          <li>{}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
