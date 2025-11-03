@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>ログイン</title>
+
+    </head>
+    <body>
+      <h2>ログイン</h2>
+
+      {% if messages %}
+        <ul>
+         {% for message in messages %} 
+           <li>{{ message }}</li>
+         {% endfor %}
+        </ul>
+      {% endif %}
+         
+      <form class="auth-form signup" method="post">
+        {% csrf_token %}
+        <div>
+          <label for="signup-email-input">Email</label>
+          <input
+            type="text"
+            placeholder="Email"
+            name="email"
+            id="signup-email-input"
+          />
+        </div>
+        <div>
+          <label for="signup-password-input">Password</label>
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            id="signup-password-input"
+          />
+        </div>
+
+         <div>
+            <button type="submit">ログイン</button>
+         </div>
+      </form>
+    </body>
+   
+
+
+
+</html>
+
