@@ -1,0 +1,50 @@
+{% extends 'base/base_user.html' %}
+{% block head %}
+  <title>FAQ詳細</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/components/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/FAQ/detail.css' %}" />
+{% endblock %}
+{% block body %}
+  {% include 'components/header.html' %}
+  <div class="body--wrap">
+    <div class="FAQ-detail--card">
+      <div class="FAQ-detail--titles">
+        <div class="FAQ-detail--titles-left">
+          <div class="FAQ-detail--titles__Q">Q</div>
+          <div class="FAQ-detail--titles__title">{タイトル}</div>
+        </div>
+        <div class="FAQ-detail--titles-right">
+          <div class="FAQ-detail--titles__user-name">{ユーザーネーム}</div>
+          <div class="FAQ-detail--titles__user-icon"></div>
+        </div>
+      </div>
+      <div class="FAQ-detail--contents">
+        <div>質問チーム：{}</div>
+        <div>質問領域：{}</div>
+        <div>
+          <div>質問内容</div>
+          <p class="FAQ-detail--contents__text">{}</p>
+        </div>
+      </div>
+    </div>
+    <div class="FAQ-detail--card">
+      <div class="FAQ-detail--titles">
+        <div class="FAQ-detail--titles-left">
+          <div class="FAQ-detail--titles__A">A</div>
+        </div>
+        <div class="FAQ-detail--titles-right">
+          <div class="FAQ-detail--titles__user-name">{ユーザーネーム}</div>
+          <div class="FAQ-detail--titles__user-icon"></div>
+        </div>
+      </div>
+      <div class="FAQ-detail--contents">
+        <div>
+          <div>解答</div>
+          <p class="FAQ-detail--contents__text">{}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="FAQ-detail--answer">回答する</button>
+{% endblock %}
