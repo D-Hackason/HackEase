@@ -1,0 +1,69 @@
+.body--wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 32px 16px;
+  gap: 20px;
+  margin-bottom: 152px;
+}
+
+.FAQ-create--title {
+  color: #51A243;
+  font-size: 64px;
+  font-weight: bold;
+}
+
+.FAQ-create--contents {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.FAQ-create--contents__title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.FAQ-create--contents__input {
+  color: #3F4A3C;
+  border: 3px solid #3F4A3C;
+  border-radius: 12px;
+  font-size: 32px;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.FAQ-create--contents__input-text {
+  width: 100%;
+}
+
+.FAQ-create--contents__input-team {
+  width: 100px;
+}
+
+.FAQ-create--contents__input-textarea {
+  width: 100%;
+  min-height: 400px;
+}
+
+.FAQ-create--contents__input-textarea::placeholder,
+.FAQ-create--contents__input-text::placeholder {
+  color: #9AB292;
+}
+
+.FAQ-create--button {
+  font-size: 52px;
+  font-weight: bold;
+  background-color: #51A243;
+  border: none;
+  color: #ffffff;
+  padding: 8px 60px;
+  border-radius: 60px;
+}
+
+.FAQ-create--button:hover {
+  opacity: 0.75;
+}
