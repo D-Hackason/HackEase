@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>要件定義作成</title>
+
+    </head>
+    <body>
+     
+
+      {% if messages %}
+        <ul>
+         {% for message in messages %} 
+           <li>{{ message }}</li>
+         {% endfor %}
+        </ul>
+      {% endif %}
+         
+      <form class="requirements_form" method="post">
+        {% csrf_token %}
+        <div>
+          <label for="title">タイトル</label>
+          <input
+            type="text"
+            placeholder="タイトル"
+            name="title"
+            id="title"  
+            maxlength="255"
+          />
+        </div>
+        <div>
+          <label for="content">要件</label>
+          <textarea
+            placeholder="内容を入力しください"
+            name="content"
+            id="content"
+          ></textarea>
+        </div>
+        <div>
+          <label for="participants">参加人数</label>
+          <input
+            type="text"
+            placeholder="参加人数を入力してください"
+            name="participants"
+            id="participants"
+          />
+        </div>
+
+        <div>
+          <label for="team">チーム名</label>
+          <input
+            type="text"
+            placeholder="チーム名を入力してください"
+            name="team"
+            id="team"
+          />
+        </div>
+        <!--使用技術は一旦textでしました。-->
+        <div>
+          <label for="tech">
+            使用技術
+          </label>
+           <textarea
+            type="text"
+            placeholder="内容を入力しください"
+            name="tech"
+            id="tech"
+           ></textarea>
+        </div>
+        <!--一応2つの記事で実践してみました。-->
+        <!--フロントエンド記事-->
+        <h2>記事</h2>
+        <label>フロントエンド</label>
+        <div>
+          <label for="frontend-title">タイトル</label>
+          <input
+           type="text"
+           name="frontend-title"
+           id="frontend-title"
+           placeholder="タイトルを入力してください">
+        </div>
+        <div>
+          <label for="frontend-url">URL</label>
+          <input
+           type="url"
+           id="frontend-url"
+           name="frontend-url"
+           placeholder="urlを入力してください">
+        </div>
+
+        <div>
+          <label for="frontend-title">タイトル</label>
+          <input
+           type="text"
+           name="frontend-title"
+           id="frontend-title"
+           placeholder="タイトルを入力してください">
+        </div>
+        <div>
+          <label for="frontend-url">URL</label>
+          <input
+           type="url"
+           id="frontend-url"
+           name="frontend-url"
+           placeholder="urlを入力してください">
+        </div>
+
+        <!--バックエンド記事-->
+        <label>バックエンド</label>
+        <div>
+          <label for="backend-title">タイトル</label>
+          <input
+           type="text"
+           name="backend-title"
+           id="backend-title"
+           placeholder="タイトルを入力してください">
+        </div>
+        <div>
+          <label for="backend-url">URL</label>
+          <input
+           type="url"
+           id="backend-url"
+           name="backend-url"
+           placeholder="urlを入力してください">
+        </div>
+
+        <div>
+          <label for="backend-title">タイトル</label>
+          <input
+           type="text"
+           name="backend-title"
+           id="backend-title"
+           placeholder="タイトルを入力してください">
+        </div>
+        <div>
+          <label for="backend-url">URL</label>
+          <input
+           type="url"
+           id="backend-url"
+           name="backend-url"
+           placeholder="urlを入力してください">
+        </div>
+
+        <!--インフラ記事-->
+        <label>インフラ</label>
+        <div>
+          <label for="infra-title">タイトル</label>
+          <input
+           type="text"
+           name="infra-title"
+           id="infra-title"
+           placeholder="タイトルを入力してください">
+        </div>
+        <div>
+          <label for="infra-url">URL</label>
+          <input
+           type="url"
+           id="infra-url"
+           name="infra-url"
+           placeholder="urlを入力してください">
+        </div>
+
+        <div>
+          <label for="infra-title">タイトル</label>
+          <input
+           type="text"
+           name="infra-title"
+           id="infra-title"
+           placeholder="タイトルを入力してください">
+        </div>
+        <div>
+          <label for="infra-url">URL</label>
+          <input
+           type="url"
+           id="infra-url"
+           name="infra-url"
+           placeholder="urlを入力してください">
+        </div>
+
+
+
+
+        
+
+         <div>
+            <button type="submit" name="save_type" value="public">公開して保存</button>
+            <button type="submit" name="save_type" value="private">非公開で保存</button>
+         </div>
+      </form>
+
+    </body>
+   
+
+
+
+</html>
+
