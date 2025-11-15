@@ -51,10 +51,6 @@ class RequirementFormView(View):
                         url=url,
                     )
         return render(request,'requirements/success.html')
-
-  
-        
-
 form=RequirementFormView.as_view()
         
         
