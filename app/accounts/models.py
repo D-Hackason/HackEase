@@ -9,6 +9,4 @@ class Users(models.Model):
     password=models.CharField(max_length=255,null=False,verbose_name="パスワード")
     is_admin=models.BooleanField(default=False,verbose_name="管理者")
     created_at=models.DateTimeField(auto_now_add=True,verbose_name="作成日時")
-    updated_at=models.DateTimeField(auto_now=True,verbose_name="更新日時")
-     
-
+    updated_at=models.DateTimeField(auto_now=True,verbose_name="更新日時")    

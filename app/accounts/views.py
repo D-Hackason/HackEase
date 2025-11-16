@@ -76,17 +76,6 @@ class LogoutView(View):
         request.session.flush()
         return redirect("login")
     
-    
-
-
-
-
-
-
 login=LoginView.as_view()
 signup=SignupView.as_view()
 logout=LogoutView.as_view()
-
-
-
-            

@@ -36,4 +36,3 @@ class Articles(models.Model):
     url=models.TextField(null=False,verbose_name='url')
     created_at=models.DateTimeField(auto_now_add=True,verbose_name="作成日時")
     updated_at=models.DateTimeField(auto_now=True,verbose_name="更新日時")
-

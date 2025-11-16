@@ -52,17 +52,3 @@ class RequirementFormView(View):
                     )
         return render(request,'requirements/success.html')
 form=RequirementFormView.as_view()
-        
-        
-
-
-
-
-        
-
-
-
-
-
-
-
