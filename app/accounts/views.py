@@ -65,7 +65,10 @@ class LoginView(View):
                     messages.error(request,"パスワードが間違っています")
                 else:
                     request.session['id']=str(user.id)
-                    return render(request,"accounts/success.html")
+                    if user.is_admin:
+                        return redirect('/requirements/form/')
+                    else:
+                        return render(request,"accounts/success.html")
         return render(request,"accounts/login.html")
     
 class LogoutView(View):
@@ -73,17 +76,6 @@ class LogoutView(View):
         request.session.flush()
         return redirect("login")
     
-    
-
-
-
-
-
-
 login=LoginView.as_view()
 signup=SignupView.as_view()
 logout=LogoutView.as_view()
-
-
-
-            
