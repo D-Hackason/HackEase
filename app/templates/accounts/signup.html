@@ -1,72 +1,71 @@
-<!DOCTYPE html>
-<html lang="ja">
-    
-    <head>
-        <meta charset="utf-8">
-        <title>サインアップ</title>
-
-    </head>
-    <body>
-      <h2>サインアップ</h2>
+{% extends 'base/base_user.html' %}
+{% block head %}
+  <title>新規登録</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/accounts/index.css' %}" />
+{% endblock %}
+{% block body %}
+  <div class="auth">
+    <div class="auth--background">
+      <h2 class="auth--title__main">HackEase</h2>
+      <h2 class="auth--title__sub">新規登録</h2>
 
       {% if messages %}
-        <ul>
-         {% for message in messages %} 
-           <li>{{ message }}</li>
-         {% endfor %}
+        <ul class="auth--form__errors">
+        {% for message in messages %} 
+          <li>{{ message }}</li>
+        {% endfor %}
         </ul>
       {% endif %}
-         
+
       <form class="auth-form signup" method="post">
         {% csrf_token %}
-        <div>
-          <label for="signup-name-input">Name</label>
+        <div class="auth--form">
+          <label class="auth--form__label" for="signup-name-input">ユーザー名</label>
           <input
             type="text"
-            placeholder="Name"
+            placeholder="ハック太郎"
             name="name"
             id="signup-name-input"
+            class="auth--form__input"
           />
         </div>
-        <div>
-          <label for="signup-email-input">Email</label>
+        <div class="auth--form">
+          <label class="auth--form__label" for="signup-email-input">メールアドレス</label>
           <input
-            type="text"
-            placeholder="Email"
+            type="email"
+            placeholder="example@example.com"
             name="email"
             id="signup-email-input"
+            class="auth--form__input"
           />
         </div>
-        <div>
-          <label for="signup-password-input">Password</label>
+        <div class="auth--form">
+          <label class="auth--form__label" for="signup-password-input">パスワード</label>
           <input
             type="password"
-            placeholder="Password"
             name="password"
             id="signup-password-input"
+            class="auth--form__input"
           />
         </div>
-        <div>
-          <label for="signup-password-confirmation-input">
-            Password Confirmation
+        <div class="auth--form">
+          <label class="auth--form__label" for="signup-password-confirmation-input">
+            パスワード（確認用）
           </label>
           <input
             type="password"
-            placeholder="Password Confirmation"
             name="password-confirmation"
             id="signup-password-confirmation-input"
+            class="auth--form__input"
           />
         </div>
 
-         <div>
-            <button type="submit">サインアップ</button>
-         </div>
+        <div class="auth--form__button">
+            <button class="auth--form__submit-button" type="submit">サインアップ</button>
+        </div>
       </form>
-
-    </body>
-   
-
-
-
-</html>
-
+      <a href="/accounts/login" class="auth--chenge-checkin">ログインはこちら</a>
+    </div>
+  </div>
+{% endblock %}
