@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.views import View
 from django.contrib import messages
 import re
@@ -51,4 +51,17 @@ class RequirementFormView(View):
                         url=url,
                     )
         return render(request,'requirements/success.html')
+
+class RequirementsListView(View):
+    def get(self,request):
+        requirments=Requirements.objects.prefetch_related('articles_set').all()
+        return render(request,"requirements/list_practice.html",{'requirements':requirments})
+
+class RequirementListDetail(View):
+    def get(self,request,id):
+        req_detail=get_object_or_404(Requirements,id=id)
+        return render(request,"requirements/detail_practice.html",{'req_detail':req_detail})
+        
 form=RequirementFormView.as_view()
+list=RequirementsListView.as_view()
+list_detail=RequirementListDetail.as_view() 

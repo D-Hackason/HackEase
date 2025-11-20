@@ -62,7 +62,7 @@ class LoginView(View):
             else:
                 hashpassword=hashlib.sha256(password.encode('utf-8')).hexdigest()
                 if hashpassword!=user.password:
-                    messages.error(request,"パスワードが間違っています")
+                    messages.error(request,"ユーザーまたはパスワードが間違っています")
                 else:
                     request.session['id']=str(user.id)
                     if user.is_admin:
