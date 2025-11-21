@@ -40,7 +40,7 @@ class SignupView(View):
                     e_mail=e_mail,
                     password=password
                 )
-                return render(request,"accounts/success.html")
+                return redirect("portral:list")
             return render(request,"accounts/signup.html")   
         return render(request,"accounts/signup.html")   
        
@@ -66,9 +66,9 @@ class LoginView(View):
                 else:
                     request.session['id']=str(user.id)
                     if user.is_admin:
-                        return redirect('/requirements/form/')
+                        return redirect('requirements:form')
                     else:
-                        return render(request,"accounts/success.html")
+                        return redirect("portral:list")
         return render(request,"accounts/login.html")
     
 class LogoutView(View):

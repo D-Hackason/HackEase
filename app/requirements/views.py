@@ -50,7 +50,7 @@ class RequirementFormView(View):
                         title=title,
                         url=url,
                     )
-        return render(request,'requirements/success.html')
+        return redirect('requirements:list')
 
 class RequirementsListView(View):
     def get(self,request):
@@ -60,7 +60,10 @@ class RequirementsListView(View):
 class RequirementListDetail(View):
     def get(self,request,id):
         req_detail=get_object_or_404(Requirements,id=id)
-        return render(request,"requirements/detail_practice.html",{'req_detail':req_detail})
+        #応募者の表示
+        users = Users.objects.filter(
+                        base_skills__base_skills_requirements__requirement_id=id).distinct()
+        return render(request,"requirements/detail_practice.html",{'req_detail':req_detail,'users':users})
         
 form=RequirementFormView.as_view()
 list=RequirementsListView.as_view()
