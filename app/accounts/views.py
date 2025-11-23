@@ -40,7 +40,7 @@ class SignupView(View):
                     e_mail=e_mail,
                     password=password
                 )
-                return render(request,"accounts/success.html")
+                return redirect("portral:list")
             return render(request,"accounts/signup.html")   
         return render(request,"accounts/signup.html")   
        
@@ -62,13 +62,13 @@ class LoginView(View):
             else:
                 hashpassword=hashlib.sha256(password.encode('utf-8')).hexdigest()
                 if hashpassword!=user.password:
-                    messages.error(request,"パスワードが間違っています")
+                    messages.error(request,"ユーザーまたはパスワードが間違っています")
                 else:
                     request.session['id']=str(user.id)
                     if user.is_admin:
-                        return redirect('/requirements/form/')
+                        return redirect('requirements:form')
                     else:
-                        return render(request,"accounts/success.html")
+                        return redirect("portral:list")
         return render(request,"accounts/login.html")
     
 class LogoutView(View):

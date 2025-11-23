@@ -1,0 +1,96 @@
+.auth {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../img/login_background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth--background {
+  border: 3px solid #FFFFFF;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.5);
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.auth--title__main {
+  font-size: 48px;
+}
+
+.auth--title__sub {
+  font-size: 28px;
+  margin-bottom: 60px;
+}
+
+.signup {
+  width: 80%;
+}
+
+.auth--form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.auth--form__errors {
+  display: flex;
+  justify-content: center;
+  color: #C9391B;
+  margin-bottom: 20px;
+}
+
+.auth--form__label {
+  font-size: 20px;
+}
+
+.auth--form__input {
+  border: 2px solid #FFFFFF;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.0);
+  font-size: 20px;
+  width: 100%;
+  padding: 16px 8px;
+}
+
+input[type='text'] {
+  border: 2px solid #FFFFFF;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.0);
+  font-size: 20px;
+  width: 100%;
+  padding: 16px 8px;
+}
+
+.auth--form__input::placeholder {
+  opacity: 0.7;
+}
+
+.auth--form__button {
+  display: flex;
+  justify-content: center;
+}
+
+.auth--form__submit-button {
+  background-color: #51A243;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  border-radius: 40px;
+  padding: 8px 60px;
+  font-size: 20px;
+}
+
+.auth--form__submit-button:hover {
+  opacity: 0.7;
+}
+
+.auth--chenge-checkin {
+  margin-top: 20px;
+}
