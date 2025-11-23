@@ -11,7 +11,7 @@ class PortralListView(View):
     def get(self,request):
         requirments=Requirements.objects.prefetch_related(
                                         'articles_set',
-                                        'requirements_tech_stacks_set__tech_stack_id').all()#ここ、間違いがあるかもです。
+                                        'requirements_tech_stacks_set__tech_stack_id').all()
         return render(request,"requirements/index.html",{'requirements':requirments})
     
 #ユーザーの要件定義詳細表示と応募フォーム

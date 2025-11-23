@@ -44,9 +44,6 @@ class RequirementFormView(View):
            tech_stack_id=tech           # 取得した TechStack オブジェクト
         )        
 
-
-
-
         categories={
             'frontend':('frontend-title','frontend-url'),
             'backend':('backend-title','backend-url'),  
