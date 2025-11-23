@@ -9,36 +9,41 @@
   {% include 'components/header.html' %}
   <div class="body--wrap">
     <ul class="requirements-lists">
-      <li class="requirements-list">
-        <div class="requirements-list--left">
-          <div class="requirements-list--left__title">{タイトル}</div>
-          <div class="requirements-list--left__stacks">
-            <div class="requirements-list--left__stacks-title">技 術</div>
-            <div class="requirements-list--left__stacks-icons">
-              <div class="requirements-list--left__stacks-icon">{}</div>
-              <div class="requirements-list--left__stacks-icon">{}</div>
-              <div class="requirements-list--left__stacks-icon">{}</div>
-              <div class="requirements-list--left__stacks-icon">{}</div>
-              <div class="requirements-list--left__stacks-icon">{}</div>
-              <div class="requirements-list--left__stacks-icon">{}</div>
-              <div class="requirements-list--left__stacks-icon">{}</div>
-              <div class="requirements-list--left__stacks-icon">{}</div>
+      {% for requirement in requirements %}
+      <a href='{{requirement.id}}'>
+        <li class="requirements-list">
+          <div class="requirements-list--left">
+            <div class="requirements-list--left__title">{{ requirement.title }}</div>
+            <div class="requirements-list--left__stacks">
+              <div class="requirements-list--left__stacks-title">技 術</div>
+              <div class="requirements-list--left__stacks-icons">
+              {% for tech_stack in requirement.requirements_tech_stacks_set.all %}
+                <div class="requirements-list--left__stacks-icon">
+                  <img
+                    src="{{ tech_stack.tech_stack_id.img_url }}"
+                    alt="{{ tech_stack.tech_stack_id.title }}"
+                    class="requirements-list--left__stacks-icon-img"
+                  >
+                </div>
+              {% endfor %}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="requirements-list--right">
-          <div class="requirements-list--right__contents">
-            <div class="requirements-list--right__contents-title">難易度</div>
-            <div class="requirements-list--right__contents-border"></div>
-            <div class="requirements-list--right__contents-main">○級</div>
+          <div class="requirements-list--right">
+            <div class="requirements-list--right__contents">
+              <div class="requirements-list--right__contents-title">難易度</div>
+              <div class="requirements-list--right__contents-border"></div>
+              <div class="requirements-list--right__contents-main">{{ requirement.get_difficulty_display }}</div>
+            </div>
+            <div class="requirements-list--right__contents">
+              <div class="requirements-list--right__contents-title">応募数</div>
+              <div class="requirements-list--right__contents-border"></div>
+              <div class="requirements-list--right__contents-main">{{ requirement.participants }}人</div>
+            </div>
           </div>
-          <div class="requirements-list--right__contents">
-            <div class="requirements-list--right__contents-title">応募数</div>
-            <div class="requirements-list--right__contents-border"></div>
-            <div class="requirements-list--right__contents-main">○人</div>
-          </div>
-        </div>
-      </li>
+        </li>
+      </a>
+      {% endfor %}
     </ul>
   </div>
 {% endblock %}

@@ -60,7 +60,11 @@
 .requirements-list--left__stacks-icon {
   width: 52px;
   height: 52px;
-  background-color: #51A243;
+}
+
+.requirements-list--left__stacks-icon-img {
+  max-width: 100%;
+  height: auto;
 }
 
 .requirements-list--right {
