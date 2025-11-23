@@ -10,13 +10,17 @@ class Requirements(models.Model):
                            to_field='id',verbose_name='ユーザーID')
     title=models.CharField(max_length=255,null=False,verbose_name='タイトル')
     content=models.TextField(null=False,verbose_name='内容')
+    difficulty = models.CharField(max_length=10, choices=[
+    ('low', '初級'),
+    ('mid', '中級'),
+    ('high', '上級'),
+    ], default='mid',verbose_name='難易度')
     participants=models.IntegerField(default=0,verbose_name='参加人数')
-    tech=models.TextField(null=False,verbose_name='使用技術')
+    #techは削除
     team=models.CharField(null=False,max_length=255,verbose_name='チーム名')
     is_public=models.BooleanField(default=False,verbose_name='公表、非公表')
     created_at=models.DateTimeField(auto_now_add=True,verbose_name="作成日時")
     updated_at=models.DateTimeField(auto_now=True,verbose_name="更新日時")
-    #teamって入れる？　使用技術はtechで一旦保存#
 
 class Articles(models.Model):
     requirement_id=models.ForeignKey(Requirements,
@@ -34,5 +38,23 @@ class Articles(models.Model):
                                 verbose_name='カテゴリー')
     title=models.CharField(max_length=255,null=False,verbose_name='タイトル')
     url=models.TextField(null=False,verbose_name='url')
+    created_at=models.DateTimeField(auto_now_add=True,verbose_name="作成日時")
+    updated_at=models.DateTimeField(auto_now=True,verbose_name="更新日時")
+
+class tech_stacks(models.Model):
+    title=models.CharField(max_length=63,null=False,verbose_name='技術名')
+    img_url=models.URLField(null=False,verbose_name='画像のurl')
+    created_at=models.DateTimeField(auto_now_add=True,verbose_name="作成日時")
+    updated_at=models.DateTimeField(auto_now=True,verbose_name="更新日時")
+
+class requirements_tech_stacks(models.Model):
+    requirement_id=models.ForeignKey(Requirements,
+                                     on_delete=models.CASCADE,
+                                     db_column='requirements_id',
+                                     to_field='id')
+    tech_stack_id=models.ForeignKey(tech_stacks,
+                                     on_delete=models.CASCADE,
+                                     db_column='tech_stack_id',
+                                     to_field='id')
     created_at=models.DateTimeField(auto_now_add=True,verbose_name="作成日時")
     updated_at=models.DateTimeField(auto_now=True,verbose_name="更新日時")

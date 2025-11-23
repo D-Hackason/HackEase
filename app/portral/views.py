@@ -9,13 +9,17 @@ from .models import Base_skills,Base_skills_Requirements
 #ユーザーの要件定義一覧表示
 class PortralListView(View):
     def get(self,request):
-        requirments=Requirements.objects.prefetch_related('articles_set').all()
+        requirments=Requirements.objects.prefetch_related(
+                                        'articles_set',
+                                        'requirements_tech_stacks_set__tech_stack_id').all()#ここ、間違いがあるかもです。
         return render(request,"requirements/index.html",{'requirements':requirments})
     
 #ユーザーの要件定義詳細表示と応募フォーム
 class PortralListDetail(View):
     def get(self,request,id):
-        req_detail=get_object_or_404(Requirements,id=id)
+        req_detail=Requirements.objects.prefetch_related('articles_set',
+                                                        'requirements_tech_stacks_set__tech_stack_id').get(id=id)
+        #req_detail=get_object_or_404(Requirements,id=id)これは、image_urlなしの場合
         return render(request,"requirements/detail.html",{'req_detail':req_detail}) #テックスタックも追加する
     
     def post(self,request,id):
@@ -48,6 +52,4 @@ class PortralListDetail(View):
 
 
 list=PortralListView.as_view()
-list_detail=PortralListDetail.as_view()     
-    
-
+list_detail=PortralListDetail.as_view()         
