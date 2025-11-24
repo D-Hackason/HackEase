@@ -74,8 +74,16 @@ class LoginView(View):
 class LogoutView(View):
     def get(self,request):
         request.session.flush()
-        return redirect("login")
+        return redirect("accounts:login")
+    
+class AccountView(View):
+    def get(self, request):
+        user_session = request.session
+        user_id = user_session.get('id')
+        user_info = Users.objects.filter(id=user_id).first()
+        return render(request, "accounts/index.html", {'user_info': user_info})
     
 login=LoginView.as_view()
 signup=SignupView.as_view()
 logout=LogoutView.as_view()
+account=AccountView.as_view()

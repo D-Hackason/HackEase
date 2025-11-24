@@ -1,0 +1,28 @@
+{% extends 'base/base_user.html' %}
+{% block head %}
+  <title>アカウント</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/components/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/accounts/index.css' %}" />
+{% endblock %}
+{% block body %}
+  {% include 'components/header.html' %}
+  <div class="account">
+    <div class="account--contents">
+      <div class="account--icon"></div>
+      <div class="account--content">
+        <div class="account--label">ユーザー名</div>
+        <div class="account--value">{{ user_info.name }}</div>
+      </div>
+      <div class="account--content">
+        <div class="account--label">メールアドレス</div>
+        <div class="account--value">{{ user_info.e_mail }}</div>
+      </div>
+      <div class="account--content">
+        <div class="account--label">パスワード</div>
+        <div class="account--value">・・・・・・・・・・</div>
+      </div>
+      <a href="{% url 'accounts:logout' %}" class="account--logout">ログアウト</a>
+    </div>
+  </div>
+{% endblock %}
