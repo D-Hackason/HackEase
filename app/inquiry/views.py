@@ -11,7 +11,7 @@ def question_form(request):
 
             # ログインユーザーだけ user を設定する
             if request.user.is_authenticated:
-                q.user = request.user            
+                q.user = request.user
             
             q.save()
             return redirect('inquiry:success')
