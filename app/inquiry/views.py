@@ -18,7 +18,7 @@ def question_form(request):
     else:
         form = QuestionForm()
     
-    return render(request, 'inquiry/question_form.html', {'form': form})
+    return render(request, 'FAQ/index.html', {'form': form})
 
 
 def success(request):
