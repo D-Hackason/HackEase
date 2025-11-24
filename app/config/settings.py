@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'requirements',
     'inquiry',
     'portral',
+    'answers',
 ]
 
 MIDDLEWARE = [
