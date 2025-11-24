@@ -12,15 +12,25 @@ class PortralListView(View):
         requirments=Requirements.objects.prefetch_related(
                                         'articles_set',
                                         'requirements_tech_stacks_set__tech_stack_id').all()
-        return render(request,"requirements/index.html",{'requirements':requirments})
+        #応募者のリスト
+        users = Users.objects.filter(
+                        base_skills__base_skills_requirements__requirement_id=id).distinct()
+        #応募者数のカウント
+        users_count=users.count()
+        return render(request,"requirements/index.html",{'requirements':requirments,'users_count':users_count})
     
 #ユーザーの要件定義詳細表示と応募フォーム
 class PortralListDetail(View):
     def get(self,request,id):
         req_detail=Requirements.objects.prefetch_related('articles_set',
                                                         'requirements_tech_stacks_set__tech_stack_id').get(id=id)
+        #応募者のリスト
+        users = Users.objects.filter(
+                        base_skills__base_skills_requirements__requirement_id=id).distinct()
+        #応募者数のカウント
+        users_count=users.count()
         #req_detail=get_object_or_404(Requirements,id=id)これは、image_urlなしの場合
-        return render(request,"requirements/detail.html",{'req_detail':req_detail}) #テックスタックも追加する
+        return render(request,"requirements/detail.html",{'req_detail':req_detail,'users_count':users_count}) #テックスタックも追加する
     
     def post(self,request,id):
         #データベースからの取得（requirementはurlのidから取得可能)
