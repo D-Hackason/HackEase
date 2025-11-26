@@ -25,4 +25,5 @@ urlpatterns = [
     path('inquiry/', include('inquiry.urls')),
     path('portral/',include("portral.urls")),
     path("", lambda request: redirect("accounts:login")),
+    path('answers/', include('answers.urls')),
 ]
