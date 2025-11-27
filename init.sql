@@ -22,7 +22,7 @@ INSERT INTO requirements_tech_stacks VALUE(4, 'Python', 'https://hackathon-dev-i
 INSERT INTO requirements_tech_stacks VALUE(5, 'Flask', 'https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/icons8-%E3%83%95%E3%83%A9%E3%82%B9%E3%82%B3-100.png', '2025-11-01', '2025-11-01');
 INSERT INTO requirements_tech_stacks VALUE(6, 'Django', 'https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/django-logo-negative.png', '2025-11-01', '2025-11-01');
 INSERT INTO requirements_tech_stacks VALUE(7, 'Java', 'https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/icons8-java-coffee-cup%E3%81%AE%E3%83%AD%E3%82%B3%E3%82%99-96.png', '2025-11-01', '2025-11-01');
-INSERT INTO requirements_tech_stacks VALUE(8, 'Quarkus', 'https://hackathon-dev-image-dteam.s3.ap-northeast1.amazonaws.com/quarkus_icon_512px_default.png', '2025-11-01', '2025-11-01');
+INSERT INTO requirements_tech_stacks VALUE(8, 'Quarkus', 'https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/quarkus_icon_512px_default.png', '2025-11-01', '2025-11-01');
 INSERT INTO requirements_tech_stacks VALUE(9, 'MySQL', 'https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/logo-mysql-170x115.png', '2025-11-01', '2025-11-01');
 INSERT INTO requirements_tech_stacks VALUE(10, 'Postgre', 'https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/elephant.png', '2025-11-01', '2025-11-01');
 INSERT INTO requirements_tech_stacks VALUE(11, 'Docker', 'https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/docker-mark-blue.png', '2025-11-01', '2025-11-01');

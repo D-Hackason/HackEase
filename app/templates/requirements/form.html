@@ -37,6 +37,16 @@
             id="content"
           ></textarea>
         </div>
+
+        <div>
+          <label for="content">難易度</label>
+          <select name="difficulty" id="">
+            <option value="low">初級</option>
+            <option value="mid">中級</option>
+            <option value="high">上級</option>
+          </select>
+        </div>
+
         <div>
           <label for="participants">参加人数</label>
           <input
@@ -56,19 +66,8 @@
             id="team"
           />
         </div>
-        <!--使用技術は一旦textでしました。-->
-        <div>
-          <label for="tech">
-            使用技術
-          </label>
-           <textarea
-            type="text"
-            placeholder="内容を入力しください"
-            name="tech"
-            id="tech"
-           ></textarea>
-        </div>
-        <!--一応2つの記事で実践してみました。-->
+
+
         <!--フロントエンド記事-->
         <h2>記事</h2>
         <label>フロントエンド</label>
@@ -180,6 +179,86 @@
 
 
 
+        <h2>使用技術</h2>
+        <!-- 使用技術のボタン -->
+        <label>
+            <input type="checkbox" name="techs" value="HTML">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/html-5_5968267.png" width="40px">
+            HTML
+        </label>
+
+        <label>
+            <input type="checkbox" name="techs" value="CSS">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/css-3_5968242.png" width="40px">
+            CSS
+        </label>
+
+        <label>
+            <input type="checkbox" name="techs" value="JavaScript">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/js_5968292.png" width="40px">
+            JavaScript
+        </label><br>
+
+        <label>
+            <input type="checkbox" name="techs" value="Python">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/python-logo-only.png" width="40px">
+            Python
+        </label>
+
+        <label>
+            <input type="checkbox" name="techs" value="Flask">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/icons8-%E3%83%95%E3%83%A9%E3%82%B9%E3%82%B3-100.png" width="40px">
+            Flask
+        </label>
+
+        <label>
+            <input type="checkbox" name="techs" value="Django">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/django-logo-negative.png" width="40px">
+            Django
+        </label>
+
+        <label>
+            <input type="checkbox" name="techs" value="Java">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/icons8-java-coffee-cup%E3%81%AE%E3%83%AD%E3%82%B3%E3%82%99-96.png" width="40px">
+            Java
+        </label>
+
+        <label>
+            <input type="checkbox" name="techs" value="Quarkus">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/quarkus_icon_512px_default.png" width="40px">
+            Quarkus
+        </label>
+
+        <label>
+            <input type="checkbox" name="techs" value="MySQL">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/logo-mysql-170x115.png" width="40px">
+            MySQL
+        </label>
+
+        <label>
+            <input type="checkbox" name="techs" value="Postgre">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/elephant.png" width="40px">
+            Postgre
+        </label><br>
+
+        <label>
+            <input type="checkbox" name="techs" value="Docker">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/docker-mark-blue.png" width="40px">
+            Docker
+        </label>
+
+        <label>
+            <input type="checkbox" name="techs" value="AWS">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/icons8-aws-96.png" width="40px">
+            AWS
+        </label>
+
+        <label>
+            <input type="checkbox" name="techs" value="Teraform">
+            <img src="https://hackathon-dev-image-dteam.s3.ap-northeast-1.amazonaws.com/icons8-%E3%83%86%E3%83%A9%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0-96.png" width="40px">
+            Teraform
+        </label>
+
 
         
 
@@ -188,6 +267,10 @@
             <button type="submit" name="save_type" value="private">非公開で保存</button>
          </div>
       </form>
+
+      <a href="{% url 'accounts:login' %}">
+        <button type="button">ログイン画面に戻る</button>
+      </a>
 
     </body>
    
