@@ -71,9 +71,13 @@
 }
 
 .requirements--contents__content-tech-icon {
-  background-color: #9AB292;
   width: 80px;
   height: 80px;
+}
+
+.requirements--contents__content-tech-icon-img {
+  width: 100%;
+  height: auto;
 }
 
 .requirements--contents__articles {
@@ -95,11 +99,10 @@
 }
 
 .requirements--contents__article-img {
-  background-color: #9AB292;
   width: 200px;
-  height: 120px;
 }
 
 .requirements--contents__article-text {
   font-size: 20px;
+  width: 200px;
 }

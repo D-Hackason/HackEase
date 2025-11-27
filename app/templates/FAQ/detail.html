@@ -12,39 +12,43 @@
       <div class="FAQ-detail--titles">
         <div class="FAQ-detail--titles-left">
           <div class="FAQ-detail--titles__Q">Q</div>
-          <div class="FAQ-detail--titles__title">{タイトル}</div>
+          <div class="FAQ-detail--titles__title">{{question.title}}</div>
         </div>
         <div class="FAQ-detail--titles-right">
-          <div class="FAQ-detail--titles__user-name">{ユーザーネーム}</div>
+          <div class="FAQ-detail--titles__user-name">{{question.user_name}}</div>
           <div class="FAQ-detail--titles__user-icon"></div>
         </div>
       </div>
       <div class="FAQ-detail--contents">
-        <div>質問チーム：{}</div>
-        <div>質問領域：{}</div>
+        <div>質問チーム：{{question.team_name}}</div>
+        <div>質問領域：{{question.category}}</div>
         <div>
           <div>質問内容</div>
-          <p class="FAQ-detail--contents__text">{}</p>
+          <p class="FAQ-detail--contents__text">{{question.content}}</p>
         </div>
       </div>
     </div>
+    {% if question.answers %}
+    {% for answer in question.answers %}
     <div class="FAQ-detail--card">
       <div class="FAQ-detail--titles">
         <div class="FAQ-detail--titles-left">
           <div class="FAQ-detail--titles__A">A</div>
         </div>
         <div class="FAQ-detail--titles-right">
-          <div class="FAQ-detail--titles__user-name">{ユーザーネーム}</div>
+          <div class="FAQ-detail--titles__user-name">{{answer.user}}</div>
           <div class="FAQ-detail--titles__user-icon"></div>
         </div>
       </div>
       <div class="FAQ-detail--contents">
         <div>
           <div>解答</div>
-          <p class="FAQ-detail--contents__text">{}</p>
+          <p class="FAQ-detail--contents__text">{{answer.content}}</p>
         </div>
       </div>
     </div>
+    {% endfor %}
+    {% endif %}
   </div>
   <button class="FAQ-detail--answer">回答する</button>
 {% endblock %}

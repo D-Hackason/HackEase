@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/',include("accounts.urls")),
     path('requirements/',include("requirements.urls")),
+    path('inquiry/', include('inquiry.urls')),
     path('portral/',include("portral.urls")),
     path("", lambda request: redirect("accounts:login")),
+    path('answers/', include('answers.urls')),
 ]

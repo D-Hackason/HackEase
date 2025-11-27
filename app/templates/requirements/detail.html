@@ -11,45 +11,48 @@
   {% include 'components/header.html' %}
   <div class="body--wrap">
     {% include 'components/requirements_sheet.html' %}
-    <form class="requirements-form" action="#" method="post">
+    <form class="requirements-form" method="post">
+        {% csrf_token %}
       <h3 class="requirements-form-title">応募フォーム</h3>
       <div>
         <h4 class="requirements-form--sub-title">希望ポジション</h4>
         <div class="three-levels--button">
-          <input type="radio" name="position" value="front" id="front" /><label for="front" class="three-levels--button__text three-levels--button__green">フロント</label>
-          <input type="radio" name="position" value="back" id="back" /><label for="back" class="three-levels--button__text three-levels--button__blue">バック</label>
+          <input type="radio" name="position" value="frontend" id="front" /><label for="front" class="three-levels--button__text three-levels--button__green">フロント</label>
+          <input type="radio" name="position" value="backend" id="back" /><label for="back" class="three-levels--button__text three-levels--button__blue">バック</label>
           <input type="radio" name="position" value="infra" id="infra" /><label for="infra" class="three-levels--button__text three-levels--button__red">インフラ</label>
         </div>
       </div>
       <div>
         <h4 class="requirements-form--sub-title">現在のステップ数</h4>
-        <input type="number" min="0", max="500" placeholder="例：150" class="requirements-form--input-text requirements-form--input-number" />
+        <input type="number" name="step" min="0", max="500" placeholder="例：150" class="requirements-form--input-text requirements-form--input-number" />
       </div>
       <div class="requirements-form--column">
         <h4 class="requirements-form--sub-title">週のコミット可能時間</h4>
-        <div class="requirements-form--text"><input type="radio" name="commit" value="10h" id="10h" /><label for="10h">10h</label></div>
-        <div class="requirements-form--text"><input type="radio" name="commit" value="15h" id="15h" /><label for="15h">15h</label></div>
-        <div class="requirements-form--text"><input type="radio" name="commit" value="20h" id="20h" /><label for="20h">20h</label></div>
-        <div class="requirements-form--text"><input type="radio" name="commit" value="20h~" id="20h~" /><label for="20h~">20h~</label></div>
+        <div class="requirements-form--text"><input type="radio" name="commit_time" value="10h" id="10h" /><label for="10h">10h</label></div>
+        <div class="requirements-form--text"><input type="radio" name="commit_time" value="15h" id="15h" /><label for="15h">15h</label></div>
+        <div class="requirements-form--text"><input type="radio" name="commit_time" value="20h" id="20h" /><label for="20h">20h</label></div>
+        <div class="requirements-form--text"><input type="radio" name="commit_time" value="20h~" id="20h~" /><label for="20h~">20h~</label></div>
       </div>
       <div>
         <h4 class="requirements-form--sub-title">稼働想定日時</h4>
-        <input type="text" placeholder="例：平日20時以降" class="requirements-form--input-text"  />
+        <input type="text" name="work_time" placeholder="例：平日20時以降" class="requirements-form--input-text"  />
       </div>
       <div class="requirements-form--column">
         <h4 class="requirements-form--sub-title">Git・GitHubについて</h4>
-        <div class="requirements-form--text"><input type="radio" name="git" value="poor" id="poor" /><label for="poor">Git及びGitHubがわからない</label></div>
-        <div class="requirements-form--text"><input type="radio" name="git" value="good" id="good" /><label for="good">Git及びGitHubは使ったことはあるが、言語化は厳しい</label></div>
-        <div class="requirements-form--text"><input type="radio" name="git" value="great" id="great" /><label for="great">Git及びGitHubはだいたいわかっていて、人にも説明できる。</label></div>
+        <div class="requirements-form--text"><input type="radio" name="git_skill" value="1" id="poor" /><label for="poor">Git及びGitHubがわからない</label></div>
+        <div class="requirements-form--text"><input type="radio" name="git_skill" value="2" id="good" /><label for="good">Git及びGitHubは使ったことはあるが、言語化は厳しい</label></div>
+        <div class="requirements-form--text"><input type="radio" name="git_skill" value="3" id="great" /><label for="great">Git及びGitHubはだいたいわかっていて、人にも説明できる。</label></div>
       </div>
       <div class="requirements-form--column">
         <h4 class="requirements-form--sub-title">開発経験について</h4>
-        <div class="requirements-form--text"><input type="radio" name="engineering" value="beginner" id="beginner" /><lavel for="beginner">開発経験なし</lavel></div>
-        <div class="requirements-form--text"><input type="radio" name="engineering" value="elementary" id="elementary" /><label for="elementary">開発経験あり（ハッカソン入門コースのみ・実務未経験）</label></div>
-        <div class="requirements-form--text"><input type="radio" name="engineering" value="intermediate" id="intermediate" /><label for="intermediate">実務経験1年未満</label></div>
-        <div class="requirements-form--text"><input type="radio" name="engineering" value="advanced" id="advanced" /><label for="advanced">実務経験1年以上</label></div>
+        <div class="requirements-form--text"><input type="radio" name="development_experience" value="1" id="beginner" /><label for="beginner">開発経験なし</label></div>
+        <div class="requirements-form--text"><input type="radio" name="development_experience" value="2" id="elementary" /><label for="elementary">開発経験あり（ハッカソン入門コースのみ・実務未経験）</label></div>
+        <div class="requirements-form--text"><input type="radio" name="development_experience" value="3" id="intermediate" /><label for="intermediate">実務経験1年未満</label></div>
+        <div class="requirements-form--text"><input type="radio" name="development_experience" value="4" id="advanced" /><label for="advanced">実務経験1年以上</label></div>
       </div>
       <input type="submit" class="submit-button" value="提出" />
     </form>
   </div>
+  <script src="{% static 'js/get_ogp.js' %}"></script>
+  <script>getAnkerByOgp();</script>
 {% endblock %}

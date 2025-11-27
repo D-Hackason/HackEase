@@ -1,3 +1,7 @@
+.body--wrap {
+  margin-bottom: 120px;
+}
+
 .FAQ-lists {
   width: 100%;
   padding: 8px;
@@ -60,4 +64,21 @@
   border-right: 3px solid #3F4A3C;
   border-bottom: 3px solid #3F4A3C;
   transform: rotate(-45deg);
+}
+
+.FAQ--create {
+  position: fixed;
+  bottom: 100px;
+  right: 200px;
+  background-color: #EE6720;
+  border-radius: 32px;
+  border: none;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 4px 32px;
+}
+
+.FAQ--create:hover {
+  opacity: 0.75;
 }

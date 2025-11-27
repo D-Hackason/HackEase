@@ -9,14 +9,25 @@ from .models import Base_skills,Base_skills_Requirements
 #ユーザーの要件定義一覧表示
 class PortralListView(View):
     def get(self,request):
-        requirments=Requirements.objects.prefetch_related('articles_set').all()
+        requirments=Requirements.objects.prefetch_related(
+                                        'articles_set',
+                                        'requirements_tech_stacks_set__tech_stack_id').all()
+        #各requimrentごとにusers_countという要素を足して、応募数を格納
+        for req in requirments:
+            req.users_count=Users.objects.filter(base_skills__base_skills_requirements__requirement_id=req.id).distinct().count()
         return render(request,"requirements/index.html",{'requirements':requirments})
     
 #ユーザーの要件定義詳細表示と応募フォーム
 class PortralListDetail(View):
     def get(self,request,id):
-        req_detail=get_object_or_404(Requirements,id=id)
-        return render(request,"requirements/detail.html",{'req_detail':req_detail}) #テックスタックも追加する
+        req_detail=Requirements.objects.prefetch_related('articles_set',
+                                                        'requirements_tech_stacks_set__tech_stack_id').get(id=id)
+        #応募者のリスト
+        users = Users.objects.filter(
+                        base_skills__base_skills_requirements__requirement_id=id).distinct()
+        #応募者数のカウント
+        users_count=users.count()
+        return render(request,"requirements/detail.html",{'req_detail':req_detail,'users_count':users_count,'users':users}) 
     
     def post(self,request,id):
         #データベースからの取得（requirementはurlのidから取得可能)
@@ -48,6 +59,4 @@ class PortralListDetail(View):
 
 
 list=PortralListView.as_view()
-list_detail=PortralListDetail.as_view()     
-    
-
+list_detail=PortralListDetail.as_view()         

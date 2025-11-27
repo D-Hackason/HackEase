@@ -9,16 +9,23 @@
   {% include 'components/header.html' %}
   <div class="body--wrap">
     <ul class="FAQ-lists">
-      <li class="FAQ-list">
-        <div class="FAQ-list--left">
-          <div class="FAQ-list--Q">Q</div>
-          <div class="FAQ-list--title">{タイトル}</div>
-        </div>
-        <div class="FAQ-list--right">
-          <div class="FAQ-list--attention">!</div>
-          <div class="FAQ-list--arrow"></div>
-        </div>
-      </li>
+      {% for question in questions %}
+      <a href="{{question.id}}">
+        <li class="FAQ-list">
+          <div class="FAQ-list--left">
+            <div class="FAQ-list--Q">Q</div>
+            <div class="FAQ-list--title">{{question.title}}</div>
+          </div>
+          <div class="FAQ-list--right">
+            {% if question.is_answer == 0 %}
+            <div class="FAQ-list--attention">!</div>
+            {% endif %}
+            <div class="FAQ-list--arrow"></div>
+          </div>
+        </li>
+      </a>
+      {% endfor %}
     </ul>
   </div>
+  <button class="FAQ--create" onClick="location.href='create'">＋新規作成</button>
 {% endblock %}

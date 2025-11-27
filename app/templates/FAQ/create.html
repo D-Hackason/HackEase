@@ -7,7 +7,8 @@
 {% endblock %}
 {% block body %}
   {% include 'components/header.html' %}
-  <form class="body--wrap">
+  <form class="body--wrap" method="post">
+    {% csrf_token %} 
     <div class="FAQ-create--title">質問フォーム</div>
     <div class="FAQ-create--contents">
       <div>
@@ -16,11 +17,11 @@
       </div>
       <div>
         <div class="FAQ-create--contents__title">質問チーム</div>
-        <input class="FAQ-create--contents__input FAQ-create--contents__input-team" name="team" />
+        <input class="FAQ-create--contents__input FAQ-create--contents__input-team" name="team_name" />
       </div>
       <div>
         <div class="FAQ-create--contents__title">質問領域</div>
-        <select class="FAQ-create--contents__input" name="field">
+        <select class="FAQ-create--contents__input" name="category">
           <option value="">選択してください</option>
           <option value="フロントエンド">フロントエンド</option>
           <option value="バックエンド">バックエンド</option>
@@ -30,7 +31,7 @@
       </div>
       <div>
         <div class="FAQ-create--contents__title">質問内容</div>
-        <textarea class="FAQ-create--contents__input FAQ-create--contents__input-textarea" name="text" placeholder="お疲れ様です。
+        <textarea class="FAQ-create--contents__input FAQ-create--contents__input-textarea" name="content" placeholder="お疲れ様です。
 DOMと仮想DOMの違いが調べても理解できなかったのですが、どの順序に理解を進めていけばいいのでしょうか？"></textarea>
       </div>
     </div>
