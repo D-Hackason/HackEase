@@ -59,7 +59,7 @@ class RequirementFormView(View):
                         title=title,
                         url=url,
                     )
-        return redirect('requirements:list')
+        return redirect('requirements:form')
 
 class RequirementsListView(View):
     def get(self,request):
