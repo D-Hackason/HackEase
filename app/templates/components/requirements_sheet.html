@@ -1,0 +1,71 @@
+<div class="requirements">
+  <div class="requirements--titles">
+    <h2 class="requirements--titles__title">{{req_detail.title}}</h2>
+    <div class="requirements--titles__contents">
+      <div class="requirements--titles__contents-title">応募数</div>
+      <div class="requirements--titles__contents-border"></div>
+      <div class="requirements--titles__contents-main">{{req_detail.participants}}人</div>
+    </div>
+  </div>
+  <div class="requirements--contents">
+    <div class="requirements--contents__requirement">
+      <h3 class="requirements--contents__title">要件</h3>
+      <p class="requirements--contents__content">{{req_detail.content}}</p>
+    </div>
+    <div>
+      <h3 class="requirements--contents__title">使用技術</h3>
+      <div class="requirements--contents__content">
+        <div class="requirements--contents__content-tech">
+          {% for tech_stack in req_detail.requirements_tech_stacks_set.all %}
+          <div class="requirements--contents__content-tech-icon">
+            <img
+              src="{{ tech_stack.tech_stack_id.img_url }}"
+              alt="{{ tech_stack.tech_stack_id.title }}"
+              class="requirements--contents__content-tech-icon-img"
+            >
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="requirements--contents__articles">
+      <h3 class="requirements--contents__title">関連記事</h3>
+      <div class="requirements--contents__content">
+        <h4>フロントエンド</h4>
+        <div class="requirements--contents__article-list">
+        {% for article in req_detail.articles_set.all %}
+          {% if article.categories == 'frontend' %}
+          <a href="{{article.url}}" class="requirements--contents__article" id="ogp-{{ article.id }}" target="_blank">
+            <div class="requirements--contents__article-text">{{article.title}}</div>
+          </a>
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+      <div class="requirements--contents__content">
+        <h4>バックエンド</h4>
+        <div class="requirements--contents__article-list">
+        {% for article in req_detail.articles_set.all %}
+          {% if article.categories == 'backend' %}
+          <a href="{{article.url}}" class="requirements--contents__article" id="ogp-{{ article.id }}" target="_blank">
+            <div class="requirements--contents__article-text">{{article.title}}</div>
+          </a>
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+      <div class="requirements--contents__content">
+        <h4>インフラ</h4>
+        <div class="requirements--contents__article-list">
+        {% for article in req_detail.articles_set.all %}
+          {% if article.categories == 'infra' %}
+          <a href="{{article.url}}" class="requirements--contents__article" id="ogp-{{ article.id }}" target="_blank">
+            <div class="requirements--contents__article-text">{{article.title}}</div>
+          </a>
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

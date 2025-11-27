@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>回答フォーム</title>
+  </head>
+  <body>
+    <h2>質問に回答する</h2>
+
+    <!-- 質問内容を表示 -->
+    <div id="question-block">
+      <h3 id="q-title"></h3>
+      <p id="q-content"></p>
+    </div>
+
+    <hr />
+
+    <form id="answerForm">
+      <textarea
+        id="answerContent"
+        rows="5"
+        cols="40"
+        placeholder="ここに回答を入力してください"
+        required
+      ></textarea>
+      <br /><br />
+      <button type="submit">回答を送信</button>
+    </form>
+
+    <script>
+      // -----------------------------
+      // 設定
+      // -----------------------------
+      const questionId = "{{ question_id }}"; // Django から渡す
+      const API_GET_QUESTION = `/inquiry/${questionId}/`;
+      const API_POST_ANSWER = `/answers/${questionId}/create/`;
+
+      // -----------------------------
+      // 質問を取得して画面に表示
+      // -----------------------------
+      fetch(API_GET_QUESTION)
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("q-title").innerText = data.title;
+          document.getElementById("q-content").innerText = data.content;
+        });
+
+      // -----------------------------
+      // 回答送信処理
+      // -----------------------------
+      document
+        .getElementById("answerForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const content = document.getElementById("answerContent").value;
+
+          fetch(API_POST_ANSWER, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              user_id: "{{ user_id }}", // Django ログインユーザーを渡す or null
+              content: content,
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              alert("回答を送信しました！");
+              document.getElementById("answerContent").value = "";
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("送信に失敗しました");
+            });
+        });
+    </script>
+  </body>
+</html>

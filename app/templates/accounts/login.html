@@ -1,0 +1,50 @@
+{% extends 'base/base_user.html' %}
+{% block head %}
+  <title>ログイン</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/accounts/login.css' %}" />
+{% endblock %}
+{% block body %}
+  <div class="auth">
+    <div class="auth--background">
+      <h2 class="auth--title__main">HackEase</h2>
+      <h3 class="auth--title__sub">ログイン</h3>
+
+        {% if messages %}
+          <ul class="auth--form__errors">
+            {% for message in messages %} 
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+      <form class="auth-form signup" method="post">
+        {% csrf_token %}
+        <div class="auth--form">
+          <label class="auth--form__label" for="signup-email-input">メールアドレス</label>
+          <input
+            type="email"
+            placeholder="example@example.com"
+            name="email"
+            id="signup-email-input"
+            class="auth--form__input"
+          />
+        </div>
+        <div class="auth--form">
+          <label class="auth--form__label" for="signup-password-input">パスワード</label>
+          <input
+            type="password"
+            placeholder=""
+            name="password"
+            id="signup-password-input"
+            class="auth--form__input"
+          />
+        </div>
+        <div class="auth--form__button">
+          <button class="auth--form__submit-button" type="submit">ログイン</button>
+        </div>
+      </form>
+      <a href="/accounts/signup" class="auth--chenge-checkin">新規登録はこちら</a>
+    </div>
+  </div>
+{% endblock %}

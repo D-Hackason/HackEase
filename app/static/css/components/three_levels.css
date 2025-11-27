@@ -1,0 +1,45 @@
+.three-levels--button {
+  display: flex;
+  gap: 4px;
+}
+
+.three-levels--button input[type=radio] {
+  display: none;
+}
+
+.three-levels--button__text {
+  border: 1px solid #000000;
+  border-radius: 23px;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.three-levels--button__green {
+  border: 2px solid #51A243;
+  color: #51A243;
+}
+
+:checked + .three-levels--button__green {
+  background-color: #51A243;
+  color: #ffffff;
+}
+
+.three-levels--button__blue {
+  border: 2px solid #0096FF;
+  color: #0096FF;
+}
+
+:checked + .three-levels--button__blue {
+  background-color: #0096FF;
+  color: #ffffff;
+}
+
+.three-levels--button__red {
+  border: 2px solid #EE6720;
+  color: #EE6720;
+}
+
+:checked + .three-levels--button__red {
+  background-color: #EE6720;
+  color: #ffffff;
+}

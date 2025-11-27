@@ -1,0 +1,140 @@
+{% extends 'base/base_user.html' %}
+{% block head %}
+  <title>履歴一覧</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/components/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/history/index.css' %}" />
+{% endblock %}
+{% block body %}
+  {% include 'components/header.html' %}
+  <div class="body--wrap">
+    <ul class="history-lists">
+      <li class="history-list">
+        <div class="history-list--left">
+          <div class="history-list--left__title">{タイトル}</div>
+          <div class="history-list--left__stacks">
+            <div class="history-list--left__stacks-title">技 術</div>
+            <div class="history-list--left__stacks-icons">
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+            </div>
+          </div>
+        </div>
+        <div class="history-list--right">
+          <div class="history-list--right__contents">
+            <div class="history-list--right__contents-title">難易度</div>
+            <div class="history-list--right__contents-border"></div>
+            <div class="history-list--right__contents-main">○級</div>
+          </div>
+          <div class="history-list--right__contents">
+            <div class="history-list--right__contents-title">参加人数</div>
+            <div class="history-list--right__contents-border"></div>
+            <div class="history-list--right__contents-main">○人</div>
+          </div>
+          <div class="history-list--right__contents">
+            <div class="history-list--right__contents-title">チーム</div>
+            <div class="history-list--right__contents-border"></div>
+            <div class="history-list--right__contents-main">{}</div>
+          </div>
+          <div class="history-list--right__contents">
+            <div class="history-list--right__contents-title">ポジション</div>
+            <div class="history-list--right__contents-border"></div>
+            <div class="history-list--right__contents-main">
+              <div class="history--position history--position__green">フロント</div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="history-list">
+        <div class="history-list--left">
+          <div class="history-list--left__title">{タイトル}</div>
+          <div class="history-list--left__stacks">
+            <div class="history-list--left__stacks-title">技 術</div>
+            <div class="history-list--left__stacks-icons">
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+            </div>
+          </div>
+        </div>
+        <div class="history-list--right">
+          <div class="history-list--right__contents">
+            <div class="history-list--right__contents-title">難易度</div>
+            <div class="history-list--right__contents-border"></div>
+            <div class="history-list--right__contents-main">○級</div>
+          </div>
+          <div class="history-list--right__contents">
+            <div class="history-list--right__contents-title">参加人数</div>
+            <div class="history-list--right__contents-border"></div>
+            <div class="history-list--right__contents-main">○人</div>
+          </div>
+          <div class="history-list--right__contents">
+            <div class="history-list--right__contents-title">チーム</div>
+            <div class="history-list--right__contents-border"></div>
+            <div class="history-list--right__contents-main">{}</div>
+          </div>
+          <div class="history-list--right__contents">
+            <div class="history-list--right__contents-title">ポジション</div>
+            <div class="history-list--right__contents-border"></div>
+            <div class="history-list--right__contents-main">
+              <div class="history--position history--position__blue">バック</div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="history-list">
+        <div class="history-list--left">
+          <div class="history-list--left__title">{タイトル}</div>
+          <div class="history-list--left__stacks">
+            <div class="history-list--left__stacks-title">技 術</div>
+            <div class="history-list--left__stacks-icons">
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+              <div class="history-list--left__stacks-icon">{}</div>
+            </div>
+          </div>
+        </div>
+        <div class="history-list--right">
+          <div class="history-list--right__contents">
+            <div class="history-list--right__contents-title">難易度</div>
+            <div class="history-list--right__contents-border"></div>
+            <div class="history-list--right__contents-main">○級</div>
+          </div>
+          <div class="history-list--right__contents">
+            <div class="history-list--right__contents-title">参加人数</div>
+            <div class="history-list--right__contents-border"></div>
+            <div class="history-list--right__contents-main">○人</div>
+          </div>
+          <div class="history-list--right__contents">
+            <div class="history-list--right__contents-title">チーム</div>
+            <div class="history-list--right__contents-border"></div>
+            <div class="history-list--right__contents-main">{}</div>
+          </div>
+          <div class="history-list--right__contents">
+            <div class="history-list--right__contents-title">ポジション</div>
+            <div class="history-list--right__contents-border"></div>
+            <div class="history-list--right__contents-main">
+              <div class="history--position history--position__red">インフラ</div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
