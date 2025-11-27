@@ -25,9 +25,8 @@
 }
 
 .header--right__main-logo {
-  width: 200px;
+  width: 300px;
   height: 88px;
-  background-color: #51A243;
 }
 
 .header--right__nav {
@@ -57,5 +56,15 @@
   width: 80px;
   height: 80px;
   background-color: #51A243;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-icon {
+  width: 90%;
+  height: auto;
+  object-fit: cover;
   border-radius: 40px;
 }
