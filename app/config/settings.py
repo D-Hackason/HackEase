@@ -26,8 +26,21 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "change-me")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DJANGO_DEBUG", "0") == "1"
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://hack-ease.com',
+    'http://hack-ease.com',
+    'https://www.hack-ease.com',
+    'http://www.hack-ease.com',
+]
+
 _ALLOWED = os.getenv("DJANGO_ALLOWED_HOSTS", "")
-ALLOWED_HOSTS = [h.strip() for h in _ALLOWED.split(",") if h.strip()] or ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [h.strip() for h in _ALLOWED.split(",") if h.strip()] or ["hack-ease.com","localhost", "127.0.0.1"]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+SECURE_SSL_REDIRECT = os.getenv("DJANGO_SECURE_SSL_REDIRECT", "0") == "1"
+SESSION_COOKIE_SECURE = os.getenv("DJANGO_SESSION_COOKIE_SECURE", "0") == "1"
+CSRF_COOKIE_SECURE = os.getenv("DJANGO_CSRF_COOKIE_SECURE", "0") == "1"
 
 # Application definition
 
@@ -87,9 +100,11 @@ DATABASES = {
         "OPTIONS": {
             "charset": "utf8mb4",
             "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+            "ssl": {"ca": "/tmp/rds-ca.pem"}
         },
     }
 }
+
 
 
 # Password validation
@@ -127,6 +142,8 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = '/static'
 
 STATICFILES_DIRS = [
   BASE_DIR / 'static',
