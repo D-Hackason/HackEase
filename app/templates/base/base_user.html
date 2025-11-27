@@ -2,6 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <link rel="shortcut icon" href="../../static/img/favicon.ico" />
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/base/base.css' %}" />
     <link rel="stylesheet" href="{% static 'css/base/base_user.css' %}" />
@@ -11,5 +12,7 @@
   <body class="body">
     {% block body %}
     {% endblock %}
+    <script src="{% static 'js/set_header_active.js' %}"></script>
+    <script>setHeaderActiveByPath();</script>
   </body>
 </html>
