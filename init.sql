@@ -60,3 +60,16 @@ INSERT INTO requirements_requirements_tech_stacks VALUE(27, '2025-11-01', '2025-
 INSERT INTO requirements_requirements_tech_stacks VALUE(28, '2025-11-01', '2025-11-01', 4, 11);
 INSERT INTO requirements_requirements_tech_stacks VALUE(29, '2025-11-01', '2025-11-01', 4, 12);
 INSERT INTO requirements_requirements_tech_stacks VALUE(30, '2025-11-01', '2025-11-01', 4, 13);
+
+-- create questions
+INSERT INTO questions VALUE(1, 'ハッカソンの進め方について', 'A', 'インフラ', 'ハッカソンの進め方がわからないです。・何から進めていけばいいのか・どういった手順で進めていけばいいのか・いつまでに何を終えていればいいのかを教えていただきたいです。また、注意事項などがあればそちらも教えていただきたいです。', false, '2025-11-01', '2025-11-01', '{users_id}');
+INSERT INTO questions VALUE(2, 'git add, git commit, git pushの違いについて', 'B', 'インフラ', '内容テキストテキスト', true, '2025-11-01', '2025-11-01', '{users_id}');
+INSERT INTO questions VALUE(3, 'ハッカソンのリーダーの仕事とは？', 'C', 'インフラ', '内容テキストテキスト', false, '2025-11-01', '2025-11-01', '{users_id}');
+INSERT INTO questions VALUE(4, 'ローカルリポジトリとリモートリポジトリについて', 'A', 'インフラ', '内容テキストテキスト', true, '2025-11-01', '2025-11-01', '{users_id}');
+INSERT INTO questions VALUE(5, 'ER図は何を元に考えていけばいいか', 'B', 'バックエンド', '内容テキストテキスト', false, '2025-11-01', '2025-11-01', '{users_id}');
+INSERT INTO questions VALUE(6, 'gitで間違えてcommitしてしまった時の対処法', 'C', 'フロントエンド', '内容テキストテキスト', true, '2025-11-01', '2025-11-01', '{users_id}');
+
+-- create answers
+INSERT INTO answers_answers VALUE(1, 'お疲れ様です！昨年度から毎月ハッカソンに参加しているものです。ハッカソン始まったはいいですが、何から進めていけばいいのか不安ですよね...！ハッカソンの種類によりますが、手順は以下の通りです！・要件が決まっているもの１.リーダーを決める２.ポジションを決める・要件が決まっていないもの１.リーダーを決める２.ポジションを決めるこのような形で進めていけばいいと思います！！初は何が何だかわからないと思いますが、頑張ってください！', '2025-11-01', '2025-11-01', 1, '{users_id}');
+INSERT INTO answers_answers VALUE(2, 'こちらのURLに詳しく書いているので、参考にしてみてください。https://example.com', '2025-11-01', '2025-11-01', 1, '{users_id}');
+INSERT INTO answers_answers VALUE(3, '説明テキストテキスト', '2025-11-01', '2025-11-01', 2, '{users_id}');

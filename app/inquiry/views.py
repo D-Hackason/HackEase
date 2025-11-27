@@ -19,7 +19,7 @@ def question_list(request):
         "updated_at": q.updated_at,
     } for q in questions]
 
-    return JsonResponse({"questions": data}, json_dumps_params={'ensure_ascii': False})
+    return render(request, 'FAQ/index.html', {"questions": data})
 
 # 質問詳細 GET（回答も含める）
 def question_detail(request, question_id):
@@ -31,7 +31,7 @@ def question_detail(request, question_id):
     # 回答一覧
     answer_list = [{
         "id": a.id,
-        "user": str(a.user),
+        "user": str(a.user.name),
         "content": a.content,
         "created_at": a.created_at,
     } for a in q.answers.all()]
@@ -39,6 +39,7 @@ def question_detail(request, question_id):
     data = {
         "id": q.id,
         "title": q.title,
+        "user_name": q.user.name,
         "team_name": q.team_name,
         "category": q.category,
         "content": q.content,
@@ -48,7 +49,7 @@ def question_detail(request, question_id):
         "answers": answer_list,
     }
 
-    return JsonResponse(data, json_dumps_params={'ensure_ascii': False})
+    return render(request, 'FAQ/detail.html', {"question": data})
 
 
 def question_form(request):
@@ -62,12 +63,12 @@ def question_form(request):
                 q.user = request.user
 
             q.save()
-            return redirect('inquiry:success')
+            return redirect('/inquiry')
     else:
         form = QuestionForm()
 
-    return render(request, 'FAQ/index.html', {'form': form})
+    return render(request, 'FAQ/create.html', {'form': form})
 
 
 def success(request):
-    return render(request, 'inquiry/success.html')
+    return render(request, 'FAQ/index.html')
