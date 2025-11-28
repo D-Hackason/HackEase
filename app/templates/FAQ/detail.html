@@ -14,10 +14,12 @@
           <div class="FAQ-detail--titles__Q">Q</div>
           <div class="FAQ-detail--titles__title">{{question.title}}</div>
         </div>
+        {% if question.user_name %}
         <div class="FAQ-detail--titles-right">
           <div class="FAQ-detail--titles__user-name">{{question.user_name}}</div>
           <div class="FAQ-detail--titles__user-icon"></div>
         </div>
+        {% endif %}
       </div>
       <div class="FAQ-detail--contents">
         <div>質問チーム：{{question.team_name}}</div>
@@ -35,10 +37,12 @@
         <div class="FAQ-detail--titles-left">
           <div class="FAQ-detail--titles__A">A</div>
         </div>
+        {% if answer.user %}
         <div class="FAQ-detail--titles-right">
           <div class="FAQ-detail--titles__user-name">{{answer.user}}</div>
           <div class="FAQ-detail--titles__user-icon"></div>
         </div>
+        {% endif %}
       </div>
       <div class="FAQ-detail--contents">
         <div>

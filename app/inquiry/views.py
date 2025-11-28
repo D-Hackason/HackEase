@@ -36,18 +36,32 @@ def question_detail(request, question_id):
         "created_at": a.created_at,
     } for a in q.answers.all()]
 
-    data = {
-        "id": q.id,
-        "title": q.title,
-        "user_name": q.user.name,
-        "team_name": q.team_name,
-        "category": q.category,
-        "content": q.content,
-        "is_answer": q.is_answer,
-        "created_at": q.created_at,
-        "updated_at": q.updated_at,
-        "answers": answer_list,
-    }
+    if q.user:
+        data = {
+            "id": q.id,
+            "title": q.title,
+            "user_name": q.user.name,
+            "team_name": q.team_name,
+            "category": q.category,
+            "content": q.content,
+            "is_answer": q.is_answer,
+            "created_at": q.created_at,
+            "updated_at": q.updated_at,
+            "answers": answer_list,
+        }
+    else:
+        data = {
+            "id": q.id,
+            "title": q.title,
+            "user_name": None,
+            "team_name": q.team_name,
+            "category": q.category,
+            "content": q.content,
+            "is_answer": q.is_answer,
+            "created_at": q.created_at,
+            "updated_at": q.updated_at,
+            "answers": answer_list,
+        }
 
     return render(request, 'FAQ/detail.html', {"question": data})
 
