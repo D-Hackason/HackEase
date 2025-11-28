@@ -1,9 +1,9 @@
 {% extends 'base/base_user.html' %}
 {% block head %}
-  <title>FAQ詳細</title>
+  <title>FAQ回答</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/components/header.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/FAQ/detail.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/answers/index.css' %}" />
 {% endblock %}
 {% block body %}
   {% include 'components/header.html' %}
@@ -53,6 +53,22 @@
     </div>
     {% endfor %}
     {% endif %}
+    <div class="FAQ-detail--card">
+      <div class="FAQ-detail--titles">
+        <div class="FAQ-detail--titles-left">
+          <div class="FAQ-detail--titles__A">A</div>
+        </div>
+      </div>
+      <form class="FAQ-detail--contents" method="post" action="{% url 'answers:create_answer' question.id %}">
+      {% csrf_token %} 
+        <div>
+          <div>回答</div>
+          <textarea name="content" class="FAQ-detail--contents__text-answer" required></textarea>
+        </div>
+        <div class="FAQ-button--content">
+          <input type="submit" class="FAQ-detail--answer" />
+        </div>
+      </form>
+    </div>
   </div>
-  <button class="FAQ-detail--answer" onClick="location.href='/answers/{{question.id}}'" >回答する</button>
 {% endblock %}
