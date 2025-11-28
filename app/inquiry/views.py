@@ -31,7 +31,7 @@ def question_detail(request, question_id):
     # 回答一覧
     answer_list = [{
         "id": a.id,
-        "user": str(a.user.name),
+        "user": str(a.user.name) if a.user else None,
         "content": a.content,
         "created_at": a.created_at,
     } for a in q.answers.all()]

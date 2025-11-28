@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Answers
 from inquiry.models import Question
 from accounts.models import Users
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 import json
 
@@ -13,14 +13,8 @@ def create_answer(request, question_id):
     if request.method != "POST":
         return JsonResponse({"error": "POST only"}, status=400)
 
-    try:
-        data = json.loads(request.body)
-    except:
-        return JsonResponse({"error": "Invalid JSON"}, status=400)
-
-    content = data.get("content")
-    raw_user_id = data.get("user_id")    # "None" などの文字が来る可能性
-
+    content = request.POST.get("content")
+    raw_user_id = request.POST.get("user_id")    # "None" などの文字が来る可能性
     if not content:
         return JsonResponse({"error": "content is required"}, status=400)
 
@@ -45,10 +39,7 @@ def create_answer(request, question_id):
         content=content,
     )
 
-    return JsonResponse({
-            "message": "Answer created",
-            "answer_id": answer.id
-        }, json_dumps_params={'ensure_ascii': False})
+    return redirect(f'/inquiry/{question_id}/')
 
 
 def answer_form_page(request, question_id):
@@ -58,8 +49,39 @@ def answer_form_page(request, question_id):
     except Question.DoesNotExist:
         return render(request, "errors/404.html", status=404)
 
-    return render(request, "answers/answer_form.html", {
-        "question_id": question_id,
-        "question": question,  # タイトルなどテンプレ表示にも使える
-        "user_id": request.user.id if request.user.is_authenticated else None,
-    })
+    # 回答一覧
+    answer_list = [{
+        "id": a.id,
+        "user": str(a.user.name) if a.user else None,
+        "content": a.content,
+        "created_at": a.created_at,
+    } for a in question.answers.all()]
+
+    if question.user:
+        data = {
+            "id": question.id,
+            "title": question.title,
+            "user_name": question.user.name,
+            "team_name": question.team_name,
+            "category": question.category,
+            "content": question.content,
+            "is_answer": question.is_answer,
+            "created_at": question.created_at,
+            "updated_at": question.updated_at,
+            "answers": answer_list,
+        }
+    else:
+        data = {
+            "id": question.id,
+            "title": question.title,
+            "user_name": None,
+            "team_name": question.team_name,
+            "category": question.category,
+            "content": question.content,
+            "is_answer": question.is_answer,
+            "created_at": question.created_at,
+            "updated_at": question.updated_at,
+            "answers": answer_list,
+        }
+
+    return render(request, "answers/index.html", {"question": data})
